@@ -1,0 +1,222 @@
+>Explain inheritance principles with a real life example:
+Inheritance: It is the mechanism by which one class is allowed to inherit features of another class. A class that is inherited is called a superclass.  The class that does the inheriting is called a subclass. Therefore, a subclass is a specialized version of a superclass. It inherits all of the members defined by the superclass and adds its own unique elements.
+
+>Describe the task of public, private and protected access modifiers with examples:
+Public access modifier: When public access modifier is used, the classes, methods etc can be accessed from everywhere in the program.
+
+public class A{
+    public void print()
+    {
+        System.out.println("Java");
+    }
+}
+public class B {
+   public static void main(String[] args){
+      
+       A a=new A();
+       a.print;
+   }  
+}
+   
+private access modifier: When any class, method, variable etc is declared with private access modifier, it is accessible only inside that particular class unless getter-setter is used.
+
+class A{
+    private void print()
+    {
+        System.out.println("Java");
+    }
+}
+these print() method is not accessible from any other class than A
+
+Protected access modifier: When protected is used, only the subclass can access the data. Protected is pretty similar to private but used for inheritance purpose to let subclass access the data while other classes cannot.
+
+class A{
+    protected void print()
+    {
+        System.out.println("Java");
+    }
+}
+
+ class B extends A {
+   public static void main(String[] args){
+      
+      B b=new B();
+      b.print();
+   }  
+}
+
+Here, subclass B can access the method print() from it's superclass A as it is protected and B is A's subclass
+
+>Why main() method is declared as public and staticx2
+
+Java specified several access modifiers e.g. private, protected and public. Any method or variable which is declared public in Java can be accessed from outside of that class, since the main() method is public in Java, JVM can easily access and execute it.
+
+The main() method is declared static so that JVM can call it without creating an instance of the class containing the main() method. So that is why the main() method has to be static and public so that JVM can access and load the class into memory and call the main() method.
+
+>Describe a scenario in natural language that could exploit the concept of java interface? Write down java code for your described scenario
+
+
+>How a java program is  platform independent
+The meaning of platform independent is that the java compiled code(byte code) can run on all operating system.
+In windows, if we compile a java code into byte code, and then compile the byte code in other operating system(Linux, mac), it will run and execute the code(.exe)
+So, java is a platform independent language.
+
+>Why is it not possible to make an object of an abstract class
+An abstract class is not complete. It is sort of a template or a structure. But objects are concrete. An abstract class can be extended and used before it can be used from other classes but it itself cannot initialize objects.
+
+>Why an exception handling approach is preferable than a if else if else approach 
+>when the finally block is used? Provide a scenario in natural language for a proper explanation
+
+A "finally" block is used after try-catch block. It executes no matter if an exception is handled or not.
+ public class demo {
+   public static void main(String[] args){
+      try{
+          int[] a=new a[]{1,2,3};
+          System.out.println(a[6]);
+          
+      }catch(ArrayIndexOutOfBoundsException e)
+      {
+          System.out.println(e);
+      }
+      finally{
+          System.out.println("program ended");
+      }
+   }  
+}
+
+
+
+>Describe the life cycle of a thread in javax3
+
+IMAGE DEWA LAGBEH
+
+
+
+Life cycle of thread in java is basically state transitions of a thread that starts from its birth and ends on its death.
+When an instance of a thread is created and is executed by calling start() method of thread class, the thread goes into runnable state.
+When sleep() or wait() method is called by Thread class, the thread enters into non-runnable state.
+
+
+
+>Explain with an example the purpose of join() method in a multi threading environment
+The join() method in a multi threading environment waits for a thread to die. It causes the currently running threads to stop executing until the thread it joins with completes it tasks.
+
+
+
+>Describe the 3 basic principle of OOP with practical examples
+The three principles of OOP:
+
+1.Encapsulation: The process of binding data and code together is called encapsulation. It can be used as a protective shield that prevents the data from being accessed by code outside its shield.
+
+2. Inheritance: It is a mechanism by which one class can inherit the features of another class.
+
+3. Polymorphism: It is the mechanism that allows multiple method declaration. It allows method overloading and method overriding.
+
+>Explain the purpose of using constructors with examples:
+A constructor is a special method of a class that initialize new objects or instances of the class. Without a constructor, we cannot create instances of the class and cannot initialize objects.
+
+>Why is a constructor important?Should a programmer use no argument constructor or a parametrized constructor or both? Provide proper arguments to support your opinion)x2
+A constructor is a special method of a class that initialize new objects or instances of the class. Without a constructor, we cannot create instances of the class and cannot initialize objects.
+A programmer should use both parameterless constructor and parametrized constructor. A parametrized constructor is written by the programmer but if we forget to use it then the compiler itself creates a default constructor with no arguments. Besides, if we do not assign a parametrized constructor we will not be able to create an instance object and so problems will arise.
+
+>Why is exception hierarchy important when dealing with multiple catch blocks? Support your opinion with an example
+
+
+>Describe a scenario (describe the scenario in natural language) where it is required to use synchronized methods in a multi threading environment. Provide arguments to justify the use of the synchronized method.
+
+>What are the uses of 'final' keyword
+"Final" keyword is used to prevent a class from being inherited. If we use "Final" keyword before the name of the class, no other class can inherit that class. If we use final keyword before any variable, we cannot change/reassign the value of the variable. If we use the "Final" keyword before any method, we cannot override that method.
+
+>Explain the usage of final, finally and finalize
+"Final" keyword is used to prevent a class from being inherited. If we use "Final" keyword before the name of the class, no other class can inherit that class. If we use final keyword before any variable, we cannot change/reassign the value of the variable. If we use the "Final" keyword before any method, we cannot override that method.
+
+A "finally" block is used after try-catch block. It executes no matter if an exception is handled or not.It ensures that a section of code is always executed, even if an exception is thrown.
+
+"finalize" is a method in java used to perform cleanup processing on an object before it is garbage collected.
+
+
+
+>Explain the concept of checked exceptions with a real life example
+Exception that occurs at the compile time are called as compile time exception/checked exceptions. These cannot simply be ignored at the time of compilation and the programmer has to handle these exception.
+
+ public class demo {
+   public static void main(String[] args){
+      try{
+          int[] a=new a[]{1,2,3};
+	  a[6]=7;
+          System.out.println(a[6]);
+          
+      }catch(ArrayIndexOutOfBoundsException e)
+      {
+          System.out.println(e);
+      }
+   }  
+}
+
+   
+>Both abstract class and interface have abstract methods but it depends on different scenerios where to use abstract class or the interface, describe two different scenerios to justift the use of two different concepts
+
+
+>What are the uses of 'this' keyword
+"This" keyword can be used inside any method to refer to the current object. Every object can access a reference to itself with "this". "This" keyword is used to resolve name-space collisions.
+>Describe method overriding with an example
+
+>Wat is polymorphism? what are the ways in which oop implements polymorphism
+Polymorphism is a mechanism that is allows multiple method declaration. It allows method overloading and method overriding. 
+
+>What are the differences between final and static variables? Apply the concepts to a scenario
+
+>Explain the purpose of using constructors with examples
+A constructor is a special method of a class that is used to initialize object or instances of the class. Without constructors, we cannot create instances of the class and cannot initialize object.
+
+>Explain the join() method with an example
+The join() method in a multithreading environment waits for a thread to die. It causes the currently running threads to stop executing until the thread it joins with completes its task.
+
+>When the finally block is used? Provide a scenario in natural language for a proper explanation
+A "finally" block is used after try-catch block. It executes no matter if an exception is handled or not.
+ public class demo {
+   public static void main(String[] args){
+      try{
+          int[] a=new a[]{1,2,3};
+          System.out.println(a[6]);
+          
+      }catch(ArrayIndexOutOfBoundsException e)
+      {
+          System.out.println(e);
+      }
+      finally{
+          System.out.println("program ended");
+      }
+   }  
+}
+>Why an exception handling approach is preferable than a if-else approach
+In case of exception if any exceptional case is found while running the code it will notify the other part of the program. It makes handling errors easy and we are allowed to wrap the code in try block and handle the possible exception when it is thrown where as if-else is to check conditions and we cannot work further to handle exceptional errors like we do in exception handling.
+
+>What are the differences between checked and unchecked exception.
+
+Checked exception:
+1. Exception that occurs at compile time are called as compile time exception/checked exception.
+2.Cannot simply be ignored at time of compilation.
+3.The programmer has to handle these exceptions.
+
+Unchecked exception:
+1. Exception that occurs at the time of execution are known as runtime/unchecked exception.
+2.These are ignored at the time of compilation but caught during runtime.
+3.The programmer should handle these exceptions. However, the compiler will show no error during compilation.
+
+
+>Why is it not possible to make object of an abstract class
+We cannot create objects in abstract class because abstract class is not complete and it is sort of a template or a structure. But objects are concrete. An abstract class can be extended and build before it can be used from other classes but it itself cannot initialize any object.
+
+
+
+Questions and answers were taken from the note of Kashfia apu. Due credits to her effort and wonderful notes. 
+A few extra questions are added. Those answers are taken from the internet.
+Good luck :)
+-Adnan.
+
+
+
+
+
+
