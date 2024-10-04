@@ -88,7 +88,6 @@ A "finally" block is used after try-catch block. It executes no matter if an exc
 
 >Describe the life cycle of a thread in javax3
 
-IMAGE DEWA LAGBEH
 
 
 
